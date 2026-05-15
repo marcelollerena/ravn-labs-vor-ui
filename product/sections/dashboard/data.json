@@ -1,0 +1,176 @@
+{
+  "_meta": {
+    "models": {
+      "DashboardSummary": "Aggregate counts summarizing the current user's active workload: open requisitions, candidates in progress, scorecards pending ATS push, and team assignments.",
+      "NeedsAttentionItem": "A candidate with an incomplete workflow step that requires action from the assigned recruiter or senior developer, sorted by urgency.",
+      "RecentActivityItem": "A timestamped event from the hiring workflow: ATS syncs, scorecard generations, ATS pushes, or team assignments.",
+      "ATSSyncStatus": "The current state of the ATS connection including last sync time and result."
+    },
+    "relationships": [
+      "DashboardSummary is a computed aggregate across JobRequisitions, Candidates, and Scorecards",
+      "NeedsAttentionItem references a Candidate and their associated JobRequisition, with assignee info",
+      "RecentActivityItem references various entities depending on the event type",
+      "ATSSyncStatus references the active ATSConnection and its most recent SyncJob"
+    ]
+  },
+  "currentUserRole": "recruiter",
+  "summary": {
+    "activeRequisitions": 8,
+    "candidatesInProgress": 23,
+    "scorecardsPendingPush": 5,
+    "teamAssignments": 14
+  },
+  "atsSyncStatus": {
+    "provider": "Greenhouse",
+    "lastSyncAt": "2026-05-14T09:12:00Z",
+    "status": "success",
+    "requisitionsImported": 2,
+    "candidatesImported": 7
+  },
+  "needsAttention": [
+    {
+      "id": "na-1",
+      "candidateId": "cand-101",
+      "candidateName": "Priya Chakraborty",
+      "jobTitle": "Senior Frontend Engineer",
+      "requisitionId": "req-301",
+      "pendingAction": "hr_transcript_not_uploaded",
+      "pendingActionLabel": "HR interview transcript not uploaded",
+      "interviewDate": "2026-05-12T14:00:00Z",
+      "urgency": "high",
+      "assignedTo": "Sarah Mitchell",
+      "assignedRole": "recruiter"
+    },
+    {
+      "id": "na-2",
+      "candidateId": "cand-102",
+      "candidateName": "Marcus Webb",
+      "jobTitle": "Staff Backend Engineer",
+      "requisitionId": "req-302",
+      "pendingAction": "scorecard_not_pushed",
+      "pendingActionLabel": "Scorecard ready — not pushed to ATS",
+      "interviewDate": "2026-05-10T10:30:00Z",
+      "urgency": "high",
+      "assignedTo": "Sarah Mitchell",
+      "assignedRole": "recruiter"
+    },
+    {
+      "id": "na-3",
+      "candidateId": "cand-103",
+      "candidateName": "Aisha Patel",
+      "jobTitle": "Senior Frontend Engineer",
+      "requisitionId": "req-301",
+      "pendingAction": "recall_questions_pending",
+      "pendingActionLabel": "Active recall questions awaiting your input",
+      "interviewDate": "2026-05-13T11:00:00Z",
+      "urgency": "medium",
+      "assignedTo": "Sarah Mitchell",
+      "assignedRole": "recruiter"
+    },
+    {
+      "id": "na-4",
+      "candidateId": "cand-104",
+      "candidateName": "Tomás Herrera",
+      "jobTitle": "Engineering Manager",
+      "requisitionId": "req-305",
+      "pendingAction": "technical_transcript_not_uploaded",
+      "pendingActionLabel": "Technical interview transcript not uploaded",
+      "interviewDate": "2026-05-13T16:00:00Z",
+      "urgency": "medium",
+      "assignedTo": "David Park",
+      "assignedRole": "senior_dev"
+    },
+    {
+      "id": "na-5",
+      "candidateId": "cand-105",
+      "candidateName": "Lin Wei",
+      "jobTitle": "Data Platform Lead",
+      "requisitionId": "req-308",
+      "pendingAction": "linkedin_not_linked",
+      "pendingActionLabel": "LinkedIn profile not connected",
+      "interviewDate": "2026-05-15T09:00:00Z",
+      "urgency": "low",
+      "assignedTo": "Sarah Mitchell",
+      "assignedRole": "recruiter"
+    },
+    {
+      "id": "na-6",
+      "candidateId": "cand-106",
+      "candidateName": "Rachel Okonkwo",
+      "jobTitle": "Staff Backend Engineer",
+      "requisitionId": "req-302",
+      "pendingAction": "resume_not_parsed",
+      "pendingActionLabel": "Resume uploaded but not yet parsed",
+      "interviewDate": "2026-05-16T13:00:00Z",
+      "urgency": "low",
+      "assignedTo": "Sarah Mitchell",
+      "assignedRole": "recruiter"
+    }
+  ],
+  "recentActivity": [
+    {
+      "id": "act-1",
+      "type": "ats_sync",
+      "description": "Greenhouse sync completed — 2 requisitions, 7 candidates imported",
+      "timestamp": "2026-05-14T09:12:00Z",
+      "relatedEntityId": "sync-440",
+      "relatedEntityType": "SyncJob"
+    },
+    {
+      "id": "act-2",
+      "type": "scorecard_generated",
+      "description": "Scorecard generated for Marcus Webb — Staff Backend Engineer",
+      "timestamp": "2026-05-14T08:45:00Z",
+      "relatedEntityId": "cand-102",
+      "relatedEntityType": "Candidate"
+    },
+    {
+      "id": "act-3",
+      "type": "team_assigned",
+      "description": "David Park assigned as Senior Dev to Senior Frontend Engineer requisition",
+      "timestamp": "2026-05-14T07:30:00Z",
+      "relatedEntityId": "req-301",
+      "relatedEntityType": "JobRequisition"
+    },
+    {
+      "id": "act-4",
+      "type": "ats_push",
+      "description": "Scorecard pushed to Greenhouse for Elena Vasquez — Senior Frontend Engineer",
+      "timestamp": "2026-05-13T17:20:00Z",
+      "relatedEntityId": "cand-110",
+      "relatedEntityType": "Candidate"
+    },
+    {
+      "id": "act-5",
+      "type": "transcript_analyzed",
+      "description": "HR interview transcript analyzed for Aisha Patel — Senior Frontend Engineer",
+      "timestamp": "2026-05-13T14:05:00Z",
+      "relatedEntityId": "cand-103",
+      "relatedEntityType": "Candidate"
+    },
+    {
+      "id": "act-6",
+      "type": "scorecard_generated",
+      "description": "Scorecard generated for Jun Tanaka — Data Platform Lead",
+      "timestamp": "2026-05-13T11:30:00Z",
+      "relatedEntityId": "cand-109",
+      "relatedEntityType": "Candidate"
+    },
+    {
+      "id": "act-7",
+      "type": "ats_sync",
+      "description": "Greenhouse sync completed — 0 requisitions, 3 candidates imported",
+      "timestamp": "2026-05-13T09:00:00Z",
+      "relatedEntityId": "sync-439",
+      "relatedEntityType": "SyncJob"
+    },
+    {
+      "id": "act-8",
+      "type": "ats_push",
+      "description": "Scorecard pushed to Greenhouse for David Kim — Engineering Manager",
+      "timestamp": "2026-05-12T16:40:00Z",
+      "relatedEntityId": "cand-108",
+      "relatedEntityType": "Candidate"
+    }
+  ]
+}

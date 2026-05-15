@@ -1,0 +1,213 @@
+{
+  "_meta": {
+    "models": {
+      "candidate": "The person being evaluated. Includes dual interview progress tracking.",
+      "jobRequisition": "The open role with assigned interview team (recruiter + senior developer).",
+      "atsRecord": "Structured candidate data imported from the ATS.",
+      "resumeDocument": "Parsed PDF resume with extracted structured data. Uploaded by the recruiter.",
+      "linkedInProfile": "LinkedIn data with work history, skills, and endorsements. Attached by the recruiter.",
+      "candidateProfile": "AI-merged view combining all three sources into a single triangulated profile.",
+      "discrepancy": "A detected conflict between data sources with severity and suggested interview question."
+    },
+    "relationships": [
+      "Candidate belongs to one JobRequisition",
+      "JobRequisition has one TeamAssignment (recruiter + senior developer)",
+      "Candidate has one ATSRecord, one ResumeDocument, and one LinkedInProfile",
+      "CandidateProfile is generated from all three data sources",
+      "Discrepancies are surfaced from the triangulation process"
+    ]
+  },
+  "currentUserRole": "recruiter",
+  "candidate": {
+    "id": "cand-0041",
+    "name": "Maria Chen",
+    "email": "maria.chen@gmail.com",
+    "phone": "+1-415-555-0188",
+    "location": "San Francisco, CA",
+    "currentStage": "technical-interview",
+    "appliedDate": "2026-04-28",
+    "evaluationProgress": {
+      "profileComplete": true,
+      "interviewPrepReady": true,
+      "interviews": {
+        "hrCompleted": true,
+        "technicalCompleted": false
+      },
+      "scorecardGenerated": false
+    }
+  },
+  "jobRequisition": {
+    "id": "req-0012",
+    "title": "Senior Backend Engineer",
+    "department": "Engineering",
+    "hiringManager": "David Park",
+    "status": "open",
+    "assignedTeam": {
+      "recruiter": { "id": "user-r1", "name": "Sarah Mitchell" },
+      "seniorDev": { "id": "user-d1", "name": "David Park" }
+    }
+  },
+  "atsRecord": {
+    "source": "Greenhouse",
+    "status": "ingested",
+    "ingestedAt": "2026-04-28T14:22:00Z",
+    "fields": {
+      "name": "Maria Chen",
+      "email": "maria.chen@gmail.com",
+      "phone": "+1-415-555-0188",
+      "location": "San Francisco, CA",
+      "currentTitle": "Senior Software Engineer",
+      "currentCompany": "Plaid",
+      "stage": "Technical Interview",
+      "source": "LinkedIn",
+      "appliedDate": "2026-04-28",
+      "tags": ["backend", "distributed-systems", "python"]
+    }
+  },
+  "resumeDocument": {
+    "id": "resume-0041",
+    "fileName": "maria-chen-resume-2026.pdf",
+    "uploadedAt": "2026-04-29T10:15:00Z",
+    "status": "ingested",
+    "parsedData": {
+      "currentTitle": "Senior Software Engineer",
+      "currentCompany": "Plaid",
+      "yearsExperience": 8,
+      "workHistory": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Plaid",
+          "startDate": "2023-03",
+          "endDate": null,
+          "duration": "3 yrs 2 mos",
+          "highlights": [
+            "Led migration of core ledger service to event-sourced architecture",
+            "Reduced P99 latency from 480ms to 120ms across payment processing pipeline",
+            "Mentored 4 junior engineers through structured growth plans"
+          ]
+        },
+        {
+          "title": "Software Engineer II",
+          "company": "Stripe",
+          "startDate": "2020-06",
+          "endDate": "2023-02",
+          "duration": "2 yrs 8 mos",
+          "highlights": [
+            "Built real-time fraud detection system processing 50K events/sec",
+            "Designed and implemented idempotency layer for payment intents API"
+          ]
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Twilio",
+          "startDate": "2018-01",
+          "endDate": "2020-05",
+          "duration": "2 yrs 4 mos"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Computer Science",
+          "institution": "UC Berkeley",
+          "graduationYear": 2017
+        }
+      ],
+      "skills": ["Python", "Go", "PostgreSQL", "Kafka", "gRPC", "Kubernetes", "Terraform", "Redis"],
+      "certifications": ["AWS Solutions Architect Associate"]
+    }
+  },
+  "linkedInProfile": {
+    "id": "li-0041",
+    "profileUrl": "https://linkedin.com/in/mariachen",
+    "status": "ingested",
+    "ingestedAt": "2026-04-29T11:30:00Z",
+    "parsedData": {
+      "headline": "Senior Backend Engineer | Distributed Systems | Plaid",
+      "location": "San Francisco Bay Area",
+      "connectionCount": 892,
+      "currentTitle": "Senior Backend Engineer",
+      "currentCompany": "Plaid",
+      "workHistory": [
+        {
+          "title": "Senior Backend Engineer",
+          "company": "Plaid",
+          "startDate": "2023-03",
+          "endDate": null,
+          "duration": "3 yrs 2 mos"
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Stripe",
+          "startDate": "2020-06",
+          "endDate": "2023-02",
+          "duration": "2 yrs 8 mos"
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Twilio",
+          "startDate": "2018-01",
+          "endDate": "2020-05",
+          "duration": "2 yrs 4 mos"
+        }
+      ],
+      "education": [
+        {
+          "degree": "BS Computer Science",
+          "institution": "University of California, Berkeley",
+          "graduationYear": 2017
+        }
+      ],
+      "skills": ["Python", "Go", "Distributed Systems", "System Design", "Kafka", "PostgreSQL", "AWS", "Kubernetes"],
+      "endorsements": {
+        "Python": 47,
+        "Go": 23,
+        "Distributed Systems": 31,
+        "Kafka": 18
+      }
+    }
+  },
+  "candidateProfile": {
+    "id": "profile-0041",
+    "generatedAt": "2026-04-29T12:00:00Z",
+    "status": "complete",
+    "summary": "Maria Chen is a senior backend engineer with 8 years of experience across fintech (Plaid, Stripe) and communications (Twilio). She specializes in distributed systems and high-throughput data pipelines, with demonstrated impact reducing P99 latency by 75% at Plaid. Strong Python and Go skills with production experience in event-driven architectures. Has mentored junior engineers and led cross-team technical initiatives.",
+    "mergedFields": {
+      "name": "Maria Chen",
+      "currentTitle": "Senior Backend Engineer",
+      "currentCompany": "Plaid",
+      "location": "San Francisco, CA",
+      "yearsExperience": 8,
+      "topSkills": ["Python", "Go", "Distributed Systems", "Kafka", "PostgreSQL", "Kubernetes"],
+      "education": "B.S. Computer Science, UC Berkeley (2017)"
+    }
+  },
+  "discrepancies": [
+    {
+      "id": "disc-001",
+      "field": "Current Title",
+      "severity": "low",
+      "resumeValue": "Senior Software Engineer",
+      "linkedInValue": "Senior Backend Engineer",
+      "atsValue": "Senior Software Engineer",
+      "summary": "Title differs between resume (Senior Software Engineer) and LinkedIn (Senior Backend Engineer). Both indicate a senior IC role.",
+      "suggestedQuestion": "Could you clarify your current title at Plaid? Your resume says Senior Software Engineer while LinkedIn shows Senior Backend Engineer."
+    },
+    {
+      "id": "disc-002",
+      "field": "Skills: Terraform",
+      "severity": "medium",
+      "resumeValue": "Listed as skill",
+      "linkedInValue": "Not listed",
+      "atsValue": "Not tagged",
+      "summary": "Terraform appears on resume but not on LinkedIn or ATS tags. Unclear depth of experience.",
+      "suggestedQuestion": "How much hands-on Terraform experience do you have? Is it something you use regularly or more occasionally?"
+    }
+  ],
+  "workspaceTabs": [
+    { "id": "profile", "label": "Profile", "status": "complete", "isActive": true },
+    { "id": "interview-prep", "label": "Interview Prep", "status": "complete", "isActive": false },
+    { "id": "hr-interview", "label": "HR Interview", "status": "complete", "isActive": false },
+    { "id": "technical-interview", "label": "Technical Interview", "status": "action-needed", "isActive": false },
+    { "id": "scorecard", "label": "Scorecard", "status": "not-started", "isActive": false }
+  ]
+}

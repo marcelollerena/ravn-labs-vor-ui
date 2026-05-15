@@ -1,0 +1,105 @@
+{
+  "_meta": {
+    "models": {
+      "TeamMember": "A recruiter or senior developer registered in Vor. Shows their current interview workload, availability, and assigned requisitions.",
+      "TeamCapacitySummary": "Aggregate counts of team members by role and availability status.",
+      "ActiveRequisition": "A job requisition the team member is currently assigned to, with candidate count."
+    },
+    "relationships": [
+      "TeamCapacitySummary is computed from the full set of TeamMembers",
+      "Each TeamMember has many ActiveRequisitions via RequisitionAssignment",
+      "Each ActiveRequisition links to a JobRequisition"
+    ]
+  },
+  "summary": {
+    "totalRecruiters": 3,
+    "totalSeniorDevs": 3,
+    "availableRecruiters": 1,
+    "availableSeniorDevs": 1
+  },
+  "members": [
+    {
+      "id": "user-r1",
+      "name": "Sarah Mitchell",
+      "email": "sarah.mitchell@vor.io",
+      "role": "recruiter",
+      "availabilityStatus": "busy",
+      "activeRequisitions": 4,
+      "activeCandidates": 18,
+      "requisitions": [
+        { "id": "req-001", "title": "Senior Frontend Engineer", "department": "Engineering", "candidateCount": 12 },
+        { "id": "req-002", "title": "Product Manager, Growth", "department": "Product", "candidateCount": 8 },
+        { "id": "req-004", "title": "Brand Designer", "department": "Design", "candidateCount": 3 },
+        { "id": "req-006", "title": "Technical Recruiter", "department": "People Operations", "candidateCount": 5 }
+      ],
+      "lastAssignedAt": "2026-05-14T07:30:00Z"
+    },
+    {
+      "id": "user-r2",
+      "name": "James Liu",
+      "email": "james.liu@vor.io",
+      "role": "recruiter",
+      "availabilityStatus": "busy",
+      "activeRequisitions": 3,
+      "activeCandidates": 15,
+      "requisitions": [
+        { "id": "req-003", "title": "Staff Backend Engineer", "department": "Engineering", "candidateCount": 6 },
+        { "id": "req-005", "title": "Content Marketing Lead", "department": "Marketing", "candidateCount": 9 },
+        { "id": "req-008", "title": "Senior Product Designer", "department": "Design", "candidateCount": 4 }
+      ],
+      "lastAssignedAt": "2026-05-10T14:00:00Z"
+    },
+    {
+      "id": "user-r3",
+      "name": "Elena Novak",
+      "email": "elena.novak@vor.io",
+      "role": "recruiter",
+      "availabilityStatus": "available",
+      "activeRequisitions": 0,
+      "activeCandidates": 0,
+      "requisitions": [],
+      "lastAssignedAt": null
+    },
+    {
+      "id": "user-d1",
+      "name": "David Park",
+      "email": "david.park@vor.io",
+      "role": "senior_dev",
+      "availabilityStatus": "overloaded",
+      "activeRequisitions": 4,
+      "activeCandidates": 20,
+      "requisitions": [
+        { "id": "req-001", "title": "Senior Frontend Engineer", "department": "Engineering", "candidateCount": 12 },
+        { "id": "req-005", "title": "Content Marketing Lead", "department": "Marketing", "candidateCount": 9 },
+        { "id": "req-007", "title": "Enterprise Account Executive", "department": "Sales", "candidateCount": 0 },
+        { "id": "req-008", "title": "Senior Product Designer", "department": "Design", "candidateCount": 4 }
+      ],
+      "lastAssignedAt": "2026-05-14T07:30:00Z"
+    },
+    {
+      "id": "user-d2",
+      "name": "Ana Torres",
+      "email": "ana.torres@vor.io",
+      "role": "senior_dev",
+      "availabilityStatus": "busy",
+      "activeRequisitions": 2,
+      "activeCandidates": 11,
+      "requisitions": [
+        { "id": "req-003", "title": "Staff Backend Engineer", "department": "Engineering", "candidateCount": 6 },
+        { "id": "req-006", "title": "Technical Recruiter", "department": "People Operations", "candidateCount": 5 }
+      ],
+      "lastAssignedAt": "2026-05-08T10:00:00Z"
+    },
+    {
+      "id": "user-d3",
+      "name": "Ravi Krishnan",
+      "email": "ravi.krishnan@vor.io",
+      "role": "senior_dev",
+      "availabilityStatus": "available",
+      "activeRequisitions": 0,
+      "activeCandidates": 0,
+      "requisitions": [],
+      "lastAssignedAt": "2026-04-20T09:00:00Z"
+    }
+  ]
+}

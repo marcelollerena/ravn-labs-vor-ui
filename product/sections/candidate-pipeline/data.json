@@ -1,0 +1,247 @@
+{
+  "_meta": {
+    "models": {
+      "jobRequisition": "The open role whose candidate pipeline is being viewed. Includes the assigned interview team.",
+      "pipelineStage": "A stage in the hiring pipeline including separate HR and Technical interview stages.",
+      "pipelineCandidate": "A candidate in the pipeline with dual interview progress tracking."
+    },
+    "relationships": [
+      "Each Job Requisition has a TeamAssignment with a recruiter and/or senior developer",
+      "Each Job Requisition has many Pipeline Candidates",
+      "Each Pipeline Candidate is at one Pipeline Stage",
+      "Each Pipeline Candidate has enrichment statuses for resume and LinkedIn",
+      "Each Pipeline Candidate has dual interview progress (HR + Technical)"
+    ]
+  },
+  "jobRequisition": {
+    "id": "req-0012",
+    "title": "Senior Backend Engineer",
+    "department": "Engineering",
+    "hiringManager": "David Park",
+    "status": "open",
+    "createdAt": "2026-04-15",
+    "location": "San Francisco, CA",
+    "assignedTeam": {
+      "recruiter": { "id": "user-r1", "name": "Sarah Mitchell" },
+      "seniorDev": { "id": "user-d1", "name": "David Park" }
+    }
+  },
+  "pipelineStages": [
+    { "id": "applied", "label": "Applied", "candidateCount": 2 },
+    { "id": "screening", "label": "Screening", "candidateCount": 2 },
+    { "id": "hr-interview", "label": "HR Interview", "candidateCount": 1 },
+    { "id": "technical-interview", "label": "Technical Interview", "candidateCount": 2 },
+    { "id": "offer", "label": "Offer", "candidateCount": 1 },
+    { "id": "hired", "label": "Hired", "candidateCount": 0 },
+    { "id": "rejected", "label": "Rejected", "candidateCount": 1 }
+  ],
+  "candidates": [
+    {
+      "id": "cand-0041",
+      "name": "Maria Chen",
+      "email": "maria.chen@gmail.com",
+      "currentStage": "technical-interview",
+      "appliedDate": "2026-04-28",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "ingested"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": true,
+        "interviewPrepped": true,
+        "interviews": {
+          "hrTranscriptUploaded": true,
+          "hrTranscriptAnalyzed": true,
+          "technicalTranscriptUploaded": false,
+          "technicalTranscriptAnalyzed": false
+        },
+        "scorecardGenerated": false
+      }
+    },
+    {
+      "id": "cand-0042",
+      "name": "James Okafor",
+      "email": "j.okafor@outlook.com",
+      "currentStage": "screening",
+      "appliedDate": "2026-04-30",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "pending"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": false,
+        "interviewPrepped": false,
+        "interviews": {
+          "hrTranscriptUploaded": false,
+          "hrTranscriptAnalyzed": false,
+          "technicalTranscriptUploaded": false,
+          "technicalTranscriptAnalyzed": false
+        },
+        "scorecardGenerated": false
+      }
+    },
+    {
+      "id": "cand-0043",
+      "name": "Priya Sharma",
+      "email": "priya.sharma@protonmail.com",
+      "currentStage": "offer",
+      "appliedDate": "2026-04-20",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "ingested"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": true,
+        "interviewPrepped": true,
+        "interviews": {
+          "hrTranscriptUploaded": true,
+          "hrTranscriptAnalyzed": true,
+          "technicalTranscriptUploaded": true,
+          "technicalTranscriptAnalyzed": true
+        },
+        "scorecardGenerated": true
+      }
+    },
+    {
+      "id": "cand-0044",
+      "name": "Lucas Brennan",
+      "email": "lucas.b@gmail.com",
+      "currentStage": "applied",
+      "appliedDate": "2026-05-06",
+      "enrichment": {
+        "resume": "pending",
+        "linkedIn": "not-available"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": false,
+        "interviewPrepped": false,
+        "interviews": {
+          "hrTranscriptUploaded": false,
+          "hrTranscriptAnalyzed": false,
+          "technicalTranscriptUploaded": false,
+          "technicalTranscriptAnalyzed": false
+        },
+        "scorecardGenerated": false
+      }
+    },
+    {
+      "id": "cand-0045",
+      "name": "Aisha Dembélé",
+      "email": "aisha.dembele@yahoo.fr",
+      "currentStage": "technical-interview",
+      "appliedDate": "2026-04-25",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "ingested"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": true,
+        "interviewPrepped": true,
+        "interviews": {
+          "hrTranscriptUploaded": true,
+          "hrTranscriptAnalyzed": true,
+          "technicalTranscriptUploaded": true,
+          "technicalTranscriptAnalyzed": true
+        },
+        "scorecardGenerated": false
+      }
+    },
+    {
+      "id": "cand-0046",
+      "name": "Ryan Kowalski",
+      "email": "ryan.kowalski@fastmail.com",
+      "currentStage": "rejected",
+      "appliedDate": "2026-04-22",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "error"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": true,
+        "interviewPrepped": false,
+        "interviews": {
+          "hrTranscriptUploaded": false,
+          "hrTranscriptAnalyzed": false,
+          "technicalTranscriptUploaded": false,
+          "technicalTranscriptAnalyzed": false
+        },
+        "scorecardGenerated": false
+      }
+    },
+    {
+      "id": "cand-0047",
+      "name": "Sofia Reyes",
+      "email": "sofia.reyes@icloud.com",
+      "currentStage": "applied",
+      "appliedDate": "2026-05-08",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "ingested"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": true,
+        "interviewPrepped": false,
+        "interviews": {
+          "hrTranscriptUploaded": false,
+          "hrTranscriptAnalyzed": false,
+          "technicalTranscriptUploaded": false,
+          "technicalTranscriptAnalyzed": false
+        },
+        "scorecardGenerated": false
+      }
+    },
+    {
+      "id": "cand-0048",
+      "name": "Daniel Kim",
+      "email": "d.kim@hey.com",
+      "currentStage": "screening",
+      "appliedDate": "2026-05-01",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "not-available"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": false,
+        "interviewPrepped": false,
+        "interviews": {
+          "hrTranscriptUploaded": false,
+          "hrTranscriptAnalyzed": false,
+          "technicalTranscriptUploaded": false,
+          "technicalTranscriptAnalyzed": false
+        },
+        "scorecardGenerated": false
+      }
+    },
+    {
+      "id": "cand-0049",
+      "name": "Elena Voronova",
+      "email": "elena.voronova@gmail.com",
+      "currentStage": "hr-interview",
+      "appliedDate": "2026-05-10",
+      "enrichment": {
+        "resume": "ingested",
+        "linkedIn": "ingested"
+      },
+      "evaluationProgress": {
+        "dataImported": true,
+        "profileBuilt": true,
+        "interviewPrepped": true,
+        "interviews": {
+          "hrTranscriptUploaded": false,
+          "hrTranscriptAnalyzed": false,
+          "technicalTranscriptUploaded": false,
+          "technicalTranscriptAnalyzed": false
+        },
+        "scorecardGenerated": false
+      }
+    }
+  ]
+}
