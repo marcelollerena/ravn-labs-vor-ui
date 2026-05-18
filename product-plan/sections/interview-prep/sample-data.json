@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "models": {
+      "candidate": "Candidate context for the briefing header.",
+      "jobRequisition": "Job requisition context for the briefing header.",
+      "briefing": "The AI-generated briefing metadata including interview type (HR or Technical), match assessment, and generation status.",
+      "strength": "A candidate qualification that meets or exceeds a job requirement.",
+      "gap": "A missing or unclear qualification that should be explored in the interview.",
+      "riskArea": "A discrepancy between data sources that warrants probing.",
+      "interviewQuestion": "An AI-generated question linked to a gap or risk area, tailored to the interview type."
+    },
+    "relationships": [
+      "Briefing is generated from CandidateProfile and JobRequisition with interview type context",
+      "Strengths, Gaps, and RiskAreas are extracted from the profile-to-requisition comparison",
+      "InterviewQuestions are linked to specific Gaps or RiskAreas",
+      "Questions are oriented to either HR screening or technical evaluation"
+    ]
+  },
+  "candidate": {
+    "id": "cand-0041",
+    "name": "Maria Chen",
+    "email": "maria.chen@gmail.com",
+    "currentStage": "technical-interview",
+    "currentTitle": "Senior Backend Engineer",
+    "currentCompany": "Plaid"
+  },
+  "jobRequisition": {
+    "id": "req-0012",
+    "title": "Senior Backend Engineer",
+    "department": "Engineering",
+    "hiringManager": "David Park"
+  },
+  "briefing": {
+    "id": "brief-0041",
+    "interviewType": "technical",
+    "status": "ready",
+    "generatedAt": "2026-05-01T09:30:00Z",
+    "matchQuality": "strong",
+    "matchSummary": "Maria Chen is a strong match for the Senior Backend Engineer role. Her 8 years of experience in distributed systems at fintech companies (Plaid, Stripe) aligns well with the position's requirements. Key strengths in Python, Go, and event-driven architectures. A few areas merit deeper technical exploration in the interview."
+  },
+  "strengths": [
+    {
+      "id": "str-001",
+      "title": "Distributed Systems Expertise",
+      "detail": "Led migration to event-sourced architecture at Plaid. Deep experience with Kafka, gRPC, and high-throughput pipelines.",
+      "requirementMatch": "Core requirement: Design and maintain distributed backend services"
+    },
+    {
+      "id": "str-002",
+      "title": "High-Throughput System Design",
+      "detail": "Built fraud detection system processing 50K events/sec at Stripe. Reduced P99 latency by 75% at Plaid.",
+      "requirementMatch": "Core requirement: Performance optimization and scalability"
+    },
+    {
+      "id": "str-003",
+      "title": "Python + Go Proficiency",
+      "detail": "Production experience in both Python and Go across multiple companies, with strong LinkedIn endorsements (47 Python, 23 Go).",
+      "requirementMatch": "Core requirement: Python and Go fluency"
+    },
+    {
+      "id": "str-004",
+      "title": "Fintech Domain Knowledge",
+      "detail": "3+ years at Plaid and 2.5+ years at Stripe working on payment processing and financial data infrastructure.",
+      "requirementMatch": "Preferred: Financial services or regulated industry experience"
+    },
+    {
+      "id": "str-005",
+      "title": "Technical Mentorship",
+      "detail": "Mentored 4 junior engineers through structured growth plans at Plaid.",
+      "requirementMatch": "Preferred: Experience mentoring engineers"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-001",
+      "title": "CI/CD Pipeline Ownership",
+      "detail": "Resume and LinkedIn don't mention CI/CD or deployment pipeline work. Unclear if she has led or significantly contributed to CI/CD improvements.",
+      "severity": "medium",
+      "sourceNote": "Not mentioned across any source"
+    },
+    {
+      "id": "gap-002",
+      "title": "System Design Communication",
+      "detail": "Technical accomplishments are well-documented, but no evidence of presenting architecture decisions to non-technical stakeholders.",
+      "severity": "low",
+      "sourceNote": "No conference talks, blog posts, or cross-functional communication evidence"
+    },
+    {
+      "id": "gap-003",
+      "title": "Observability Tooling",
+      "detail": "Latency reduction work implies observability usage, but no specific mention of monitoring stacks (Datadog, Grafana, etc.).",
+      "severity": "low",
+      "sourceNote": "Implied but not stated in any source"
+    }
+  ],
+  "riskAreas": [
+    {
+      "id": "risk-001",
+      "title": "Title Discrepancy",
+      "detail": "Resume says 'Senior Software Engineer' while LinkedIn says 'Senior Backend Engineer'. Minor, but worth clarifying.",
+      "severity": "low",
+      "sources": ["Resume", "LinkedIn"],
+      "resumeValue": "Senior Software Engineer",
+      "linkedInValue": "Senior Backend Engineer",
+      "atsValue": "Senior Software Engineer"
+    },
+    {
+      "id": "risk-002",
+      "title": "Terraform Experience Depth",
+      "detail": "Terraform listed on resume but absent from LinkedIn skills and ATS tags. May indicate surface-level familiarity.",
+      "severity": "medium",
+      "sources": ["Resume", "LinkedIn", "ATS"],
+      "resumeValue": "Listed as skill",
+      "linkedInValue": "Not listed",
+      "atsValue": "Not tagged"
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "q-001",
+      "category": "Technical Depth",
+      "question": "Walk me through the event-sourced architecture migration at Plaid. What were the key design decisions, what trade-offs did you evaluate, and how did you handle backward compatibility?",
+      "context": "Probes depth of distributed systems expertise and decision-making in the architecture migration mentioned in resume highlights.",
+      "linkedGapId": null
+    },
+    {
+      "id": "q-002",
+      "category": "Technical Depth",
+      "question": "You reduced P99 latency from 480ms to 120ms. Can you break down the bottlenecks you identified and the specific optimizations you applied?",
+      "context": "Tests whether the performance work was hands-on engineering versus delegation, and reveals observability tooling experience.",
+      "linkedGapId": "gap-003"
+    },
+    {
+      "id": "q-003",
+      "category": "Experience Gap",
+      "question": "Tell me about your experience with CI/CD pipelines. Have you owned or significantly improved deployment infrastructure at any of your roles?",
+      "context": "Directly addresses the CI/CD gap — not mentioned in any source material.",
+      "linkedGapId": "gap-001"
+    },
+    {
+      "id": "q-004",
+      "category": "Technical Depth",
+      "question": "How do you approach monitoring and observability in production systems? What tools and practices have you used?",
+      "context": "Addresses the observability gap — latency work implies usage but no specific tooling mentioned.",
+      "linkedGapId": "gap-003"
+    },
+    {
+      "id": "q-005",
+      "category": "Experience Gap",
+      "question": "What is your hands-on experience with Terraform? Can you describe a specific infrastructure-as-code project you led or contributed to?",
+      "context": "Clarifies depth of Terraform experience — listed on resume but absent from LinkedIn and ATS.",
+      "linkedGapId": null
+    },
+    {
+      "id": "q-006",
+      "category": "Leadership",
+      "question": "Tell me about mentoring the 4 junior engineers at Plaid. How did you structure their growth plans and measure progress?",
+      "context": "Explores mentorship approach and leadership readiness for a senior role.",
+      "linkedGapId": null
+    },
+    {
+      "id": "q-007",
+      "category": "Career Trajectory",
+      "question": "You've spent your career in fintech. What draws you to this role specifically, and how do you see your career evolving from here?",
+      "context": "Assesses motivation and long-term alignment.",
+      "linkedGapId": null
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "_meta": {
+    "models": {
+      "candidate": "Candidate context for breadcrumb and header display.",
+      "jobRequisition": "Job requisition context for breadcrumb display.",
+      "transcript": "The uploaded interview transcript with interview type indicator (HR or Technical), speaker identification, and processing status.",
+      "transcriptInsight": "An AI-extracted observation from the transcript — notable moments, strengths, weaknesses, or red flags with supporting quotes.",
+      "recallQuestion": "An AI-generated follow-up question tailored to the interviewer role and interview type.",
+      "interviewerAnswer": "The interviewer's subjective response to a recall question, tagged with their role."
+    },
+    "relationships": [
+      "Transcript belongs to an InterviewSession which has an interviewType",
+      "TranscriptInsights are extracted from a Transcript",
+      "RecallQuestions are generated from a Transcript and oriented to the interviewer role",
+      "InterviewerAnswers belong to RecallQuestions and track which role answered"
+    ]
+  },
+  "interviewType": "hr_screening",
+  "candidate": {
+    "id": "cand-0050",
+    "name": "Priya Chakraborty",
+    "email": "priya.c@gmail.com",
+    "currentStage": "hr-interview"
+  },
+  "jobRequisition": {
+    "id": "req-0013",
+    "title": "Senior Frontend Engineer",
+    "department": "Engineering"
+  },
+  "transcript": {
+    "id": "tr-0050-hr",
+    "candidateId": "cand-0050",
+    "interviewType": "hr_screening",
+    "fileName": "priya-chakraborty-hr-screening-2026-05-12.txt",
+    "uploadedAt": "2026-05-12T16:30:00Z",
+    "status": "analyzed",
+    "wordCount": 4823,
+    "duration": "47 min",
+    "speakers": ["Sarah Mitchell (Recruiter)", "Priya Chakraborty"],
+    "rawText": "Sarah Mitchell: Thanks for joining today, Priya. I'd love to start by hearing about your current role and what brought you to explore this opportunity.\n\nPriya Chakraborty: Thank you Sarah, I appreciate the time. I've been at Figma for about three years now, leading the design systems frontend team. We're responsible for the component library that powers the editor UI, so it's very performance-sensitive work. I was drawn to this role because I'm looking for more ownership over product direction, not just the technical execution. At Figma I've built deep expertise in React rendering optimization and canvas-based UIs, but I want to apply that in a context where I can shape what we build, not just how we build it.\n\nSarah Mitchell: That's a great perspective. Can you tell me about a time you had a significant conflict with a colleague and how you resolved it?\n\nPriya Chakraborty: Sure. About a year ago, our PM wanted to ship a new component API that I felt would create performance regressions for power users. Instead of just pushing back, I set up a benchmark suite and invited the PM to review the results together. We ended up finding a middle ground — a progressive loading approach that satisfied both the UX goals and the performance constraints. The key was making the conversation data-driven rather than opinion-based.\n\nSarah Mitchell: How would you describe your working relationship with engineering managers and other stakeholders?\n\nPriya Chakraborty: I try to be a translator between technical constraints and business needs. At Figma, I regularly present architecture decisions to our VP of Engineering and product stakeholders. I've learned to frame technical trade-offs in terms of user impact and business outcomes rather than implementation details. I think that's especially important in a senior role where you're expected to influence beyond your immediate team.\n\nSarah Mitchell: What does your ideal team culture look like?\n\nPriya Chakraborty: I thrive in environments with high psychological safety and low process overhead. I value direct feedback, autonomy in how work gets done, and a shared commitment to craft. I've seen teams get bogged down by excessive ceremony, and I prefer lightweight processes that keep people focused on impact.\n\nSarah Mitchell: Can you talk about your salary expectations and availability?\n\nPriya Chakraborty: I'm currently at $195K base with equity. I'd be looking for something competitive in that range. I can start within four weeks of an offer. I should mention I have one other active process, but this role is my top priority based on what I've learned about the team and the problem space.\n\nSarah Mitchell: Thanks Priya. We'll be scheduling the technical interview next, where you'll meet David Park, our senior developer on the team. Any questions for me?\n\nPriya Chakraborty: Yes — how does the team handle design reviews and code quality? And what does the onboarding process look like for senior hires?\n\nSarah Mitchell: Great questions. We do lightweight async design reviews with deeper sync discussions for architectural decisions. Onboarding is a 90-day structured program with a dedicated buddy. I'll make sure David covers more of the technical specifics in your next conversation."
+  },
+  "transcriptInsights": [
+    {
+      "id": "ins-001",
+      "transcriptId": "tr-0050-hr",
+      "category": "strong",
+      "summary": "Clear motivation for the move — seeking product ownership beyond pure technical execution",
+      "quote": "I want to apply that in a context where I can shape what we build, not just how we build it",
+      "quoteStartIndex": 520,
+      "quoteEndIndex": 605,
+      "topic": "Motivation & Career Goals"
+    },
+    {
+      "id": "ins-002",
+      "transcriptId": "tr-0050-hr",
+      "category": "strong",
+      "summary": "Data-driven conflict resolution approach — turned technical disagreement into collaborative benchmark review",
+      "quote": "I set up a benchmark suite and invited the PM to review the results together. We ended up finding a middle ground",
+      "quoteStartIndex": 980,
+      "quoteEndIndex": 1085,
+      "topic": "Conflict Resolution"
+    },
+    {
+      "id": "ins-003",
+      "transcriptId": "tr-0050-hr",
+      "category": "strong",
+      "summary": "Demonstrates cross-functional communication skills — frames technical decisions in business terms",
+      "quote": "I've learned to frame technical trade-offs in terms of user impact and business outcomes rather than implementation details",
+      "quoteStartIndex": 1380,
+      "quoteEndIndex": 1498,
+      "topic": "Stakeholder Management"
+    },
+    {
+      "id": "ins-004",
+      "transcriptId": "tr-0050-hr",
+      "category": "notable",
+      "summary": "Clear culture preferences — values psychological safety, autonomy, and lightweight processes",
+      "quote": "I thrive in environments with high psychological safety and low process overhead",
+      "quoteStartIndex": 1650,
+      "quoteEndIndex": 1728,
+      "topic": "Culture Fit"
+    },
+    {
+      "id": "ins-005",
+      "transcriptId": "tr-0050-hr",
+      "category": "notable",
+      "summary": "Has another active hiring process but states this role is top priority",
+      "quote": "I have one other active process, but this role is my top priority based on what I've learned about the team and the problem space",
+      "quoteStartIndex": 2050,
+      "quoteEndIndex": 2172,
+      "topic": "Availability & Competing Offers"
+    },
+    {
+      "id": "ins-006",
+      "transcriptId": "tr-0050-hr",
+      "category": "notable",
+      "summary": "Salary expectation is $195K base with equity — aligned with market range for senior frontend roles",
+      "quote": "I'm currently at $195K base with equity. I'd be looking for something competitive in that range",
+      "quoteStartIndex": 1950,
+      "quoteEndIndex": 2045,
+      "topic": "Compensation"
+    },
+    {
+      "id": "ins-007",
+      "transcriptId": "tr-0050-hr",
+      "category": "weak",
+      "summary": "Limited discussion of management or team-lead aspirations — focus remains on IC track",
+      "quote": "I think that's especially important in a senior role where you're expected to influence beyond your immediate team",
+      "quoteStartIndex": 1500,
+      "quoteEndIndex": 1610,
+      "topic": "Leadership Growth"
+    },
+    {
+      "id": "ins-008",
+      "transcriptId": "tr-0050-hr",
+      "category": "strong",
+      "summary": "Asks thoughtful onboarding and process questions — shows genuine interest in team dynamics",
+      "quote": "how does the team handle design reviews and code quality? And what does the onboarding process look like for senior hires?",
+      "quoteStartIndex": 2300,
+      "quoteEndIndex": 2420,
+      "topic": "Candidate Engagement"
+    }
+  ],
+  "recallQuestions": [
+    {
+      "id": "rq-001",
+      "transcriptId": "tr-0050-hr",
+      "question": "How genuine did the conflict resolution story feel? Did it seem rehearsed or like a real experience she reflected on?",
+      "topic": "Conflict Resolution",
+      "order": 1,
+      "answeredAt": "2026-05-12T17:15:00Z"
+    },
+    {
+      "id": "rq-002",
+      "transcriptId": "tr-0050-hr",
+      "question": "She mentioned wanting more product ownership. Did you get a sense of how much ambiguity she's comfortable with in undefined product spaces?",
+      "topic": "Motivation & Ambiguity Tolerance",
+      "order": 2,
+      "answeredAt": null
+    },
+    {
+      "id": "rq-003",
+      "transcriptId": "tr-0050-hr",
+      "question": "How did she come across in terms of energy and enthusiasm about the role? Was there a particular moment where she seemed most engaged?",
+      "topic": "Cultural Energy",
+      "order": 3,
+      "answeredAt": null
+    },
+    {
+      "id": "rq-004",
+      "transcriptId": "tr-0050-hr",
+      "question": "She mentioned preferring lightweight processes. Given our current team structure, do you see potential friction or alignment with how we work?",
+      "topic": "Process Fit",
+      "order": 4,
+      "answeredAt": null
+    },
+    {
+      "id": "rq-005",
+      "transcriptId": "tr-0050-hr",
+      "question": "Considering the competing offer she mentioned, what's your instinct on her likelihood to accept if we extend an offer?",
+      "topic": "Offer Risk Assessment",
+      "order": 5,
+      "answeredAt": null
+    }
+  ],
+  "interviewerAnswers": [
+    {
+      "id": "ans-001",
+      "recallQuestionId": "rq-001",
+      "answer": "It felt very genuine. She paused to think about the specific details and mentioned the PM by context (not by name, which felt natural). The benchmark suite detail was specific enough that it didn't feel rehearsed. She also acknowledged the PM's perspective was valid, which shows maturity.",
+      "answeredAt": "2026-05-12T17:15:00Z",
+      "answeredByRole": "recruiter"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "models": {
+      "JobRequisition": "An open role imported from the ATS. Contains title, department, status, priority, candidate count, posting date, and assigned interview team.",
+      "SummaryStats": "Aggregated metrics across all job requisitions for the stats bar.",
+      "TeamAssignment": "The recruiter and senior developer assigned to run the hiring process for this requisition. At least one must be present."
+    },
+    "relationships": [
+      "SummaryStats is computed from the full set of JobRequisitions",
+      "Each JobRequisition links to a Candidate Pipeline (navigated on click)",
+      "Each JobRequisition has one TeamAssignment with an optional recruiter and optional senior developer"
+    ]
+  },
+  "summaryStats": {
+    "totalRequisitions": 8,
+    "openRequisitions": 5,
+    "totalCandidates": 47,
+    "urgentRoles": 2
+  },
+  "departments": ["Engineering", "Product", "Design", "Marketing", "Sales", "People Operations"],
+  "requisitions": [
+    {
+      "id": "req-001",
+      "title": "Senior Frontend Engineer",
+      "department": "Engineering",
+      "status": "Open",
+      "priority": "Urgent",
+      "candidateCount": 12,
+      "postedDate": "2026-04-15",
+      "assignedTeam": {
+        "recruiter": { "id": "user-r1", "name": "Sarah Mitchell" },
+        "seniorDev": { "id": "user-d1", "name": "David Park" }
+      }
+    },
+    {
+      "id": "req-002",
+      "title": "Product Manager, Growth",
+      "department": "Product",
+      "status": "Open",
+      "priority": "High",
+      "candidateCount": 8,
+      "postedDate": "2026-04-22",
+      "assignedTeam": {
+        "recruiter": { "id": "user-r1", "name": "Sarah Mitchell" }
+      }
+    },
+    {
+      "id": "req-003",
+      "title": "Staff Backend Engineer",
+      "department": "Engineering",
+      "status": "Open",
+      "priority": "Urgent",
+      "candidateCount": 6,
+      "postedDate": "2026-03-28",
+      "assignedTeam": {
+        "recruiter": { "id": "user-r2", "name": "James Liu" },
+        "seniorDev": { "id": "user-d2", "name": "Ana Torres" }
+      }
+    },
+    {
+      "id": "req-004",
+      "title": "Brand Designer",
+      "department": "Design",
+      "status": "On Hold",
+      "priority": "Normal",
+      "candidateCount": 3,
+      "postedDate": "2026-02-10",
+      "assignedTeam": {
+        "recruiter": { "id": "user-r1", "name": "Sarah Mitchell" }
+      }
+    },
+    {
+      "id": "req-005",
+      "title": "Content Marketing Lead",
+      "department": "Marketing",
+      "status": "Closed",
+      "priority": "Normal",
+      "candidateCount": 9,
+      "postedDate": "2026-01-08",
+      "assignedTeam": {
+        "recruiter": { "id": "user-r2", "name": "James Liu" },
+        "seniorDev": { "id": "user-d1", "name": "David Park" }
+      }
+    },
+    {
+      "id": "req-006",
+      "title": "Technical Recruiter",
+      "department": "People Operations",
+      "status": "Open",
+      "priority": "High",
+      "candidateCount": 5,
+      "postedDate": "2026-05-01",
+      "assignedTeam": {
+        "recruiter": { "id": "user-r1", "name": "Sarah Mitchell" },
+        "seniorDev": { "id": "user-d2", "name": "Ana Torres" }
+      }
+    },
+    {
+      "id": "req-007",
+      "title": "Enterprise Account Executive",
+      "department": "Sales",
+      "status": "Draft",
+      "priority": "Normal",
+      "candidateCount": 0,
+      "postedDate": "2026-05-10",
+      "assignedTeam": {
+        "seniorDev": { "id": "user-d1", "name": "David Park" }
+      }
+    },
+    {
+      "id": "req-008",
+      "title": "Senior Product Designer",
+      "department": "Design",
+      "status": "Open",
+      "priority": "Normal",
+      "candidateCount": 4,
+      "postedDate": "2026-04-30",
+      "assignedTeam": {
+        "recruiter": { "id": "user-r2", "name": "James Liu" },
+        "seniorDev": { "id": "user-d1", "name": "David Park" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "_meta": {
+    "models": {
+      "scorecard": "The final structured evaluation synthesizing HR and technical interview evidence. Contains separate HR and technical summaries, combined recommendation, strengths, concerns, evidence quotes from both interviews, and interviewer impressions from both the recruiter and senior developer."
+    },
+    "relationships": [
+      "Scorecard is generated from CandidateProfile, HR InterviewSession, Technical InterviewSession, TranscriptInsights, and InterviewerAnswers",
+      "EvidenceQuotes are tagged with interviewSource (hr, technical, or combined)",
+      "InterviewerImpressions are tagged with interviewSource (hr from recruiter, technical from senior dev)",
+      "ATSPushEvents track when and where the scorecard was pushed"
+    ]
+  },
+  "scorecards": [
+    {
+      "id": "sc-001",
+      "candidateId": "cand-201",
+      "candidateName": "Priya Ramanathan",
+      "jobRequisitionId": "req-301",
+      "jobTitle": "Senior Frontend Engineer",
+      "department": "Engineering",
+      "generatedAt": "2026-05-13T14:00:00Z",
+      "lastEditedAt": null,
+      "editedByRecruiter": false,
+      "status": "draft",
+      "summary": "Priya Ramanathan is a strong candidate for the Senior Frontend Engineer role, demonstrating deep expertise in React performance optimization and component architecture from her 6 years at Figma and Vercel. Both the HR screening and technical interview produced consistently positive signals.",
+      "hrSummary": "In the HR screening, Priya demonstrated clear motivation for the role, citing a desire for more product ownership. She showed strong conflict resolution skills through a specific example of data-driven stakeholder alignment. Communication style is articulate and business-oriented. Salary expectations are within range at $185K base. Available to start in 3 weeks.",
+      "technicalSummary": "In the technical interview, Priya excelled at system design, proposing an elegant progressive hydration strategy for the component library challenge. She demonstrated deep React internals knowledge, explaining fiber reconciliation trade-offs with production examples. Her approach to testing was thorough, covering visual regression and performance benchmarks.",
+      "recommendation": "hire",
+      "confidenceLevel": "high",
+      "strengths": [
+        {
+          "id": "s1",
+          "text": "Exceptional React optimization expertise with production evidence of rendering performance improvements",
+          "evidence": "Described reducing Figma's component panel re-render time by 60% through strategic memo boundaries and virtualized lists"
+        },
+        {
+          "id": "s2",
+          "text": "Strong system design thinking demonstrated in the technical interview",
+          "evidence": "Proposed progressive hydration approach that balanced initial load performance with interactivity requirements"
+        },
+        {
+          "id": "s3",
+          "text": "Effective cross-functional communication validated in HR screening",
+          "evidence": "Gave specific examples of translating technical constraints into business terms for product stakeholders"
+        },
+        {
+          "id": "s4",
+          "text": "Proactive mentorship track record confirmed across both interviews",
+          "evidence": "Mentored 3 engineers at Figma with structured growth plans; technical interviewer noted her explanations were pedagogically clear"
+        }
+      ],
+      "concerns": [
+        {
+          "id": "c1",
+          "text": "Limited experience with backend-for-frontend patterns",
+          "evidence": "Acknowledged in technical interview that she hasn't worked extensively with BFF layers or server-side rendering at scale"
+        },
+        {
+          "id": "c2",
+          "text": "May prefer more autonomy than our current team structure provides",
+          "evidence": "HR screening revealed preference for 'lightweight processes' — worth monitoring during onboarding"
+        }
+      ],
+      "evidenceQuotes": [
+        {
+          "id": "eq1",
+          "timestamp": "12:34",
+          "speaker": "Priya Ramanathan",
+          "quote": "We reduced the component panel re-render time by 60% by introducing selective memo boundaries and a virtualized scroll container that only renders visible items plus a small buffer.",
+          "context": "Describing a specific performance win at Figma during the technical interview",
+          "interviewSource": "technical"
+        },
+        {
+          "id": "eq2",
+          "timestamp": "08:15",
+          "speaker": "Priya Ramanathan",
+          "quote": "I try to frame technical trade-offs in terms of user impact — 'this will add 200ms to initial load for 40% of users' lands differently than 'this increases bundle size by 50KB'.",
+          "context": "Explaining her approach to stakeholder communication during the HR screening",
+          "interviewSource": "hr"
+        },
+        {
+          "id": "eq3",
+          "timestamp": "28:10",
+          "speaker": "Priya Ramanathan",
+          "quote": "For the component library, I'd start with progressive hydration — render the shell immediately, then hydrate interactive elements in priority order based on viewport visibility.",
+          "context": "Proposing architecture for the system design challenge during the technical interview",
+          "interviewSource": "technical"
+        },
+        {
+          "id": "eq4",
+          "timestamp": "15:42",
+          "speaker": "Priya Ramanathan",
+          "quote": "When the PM and I disagreed on the API design, I set up a benchmark comparing both approaches under realistic load. The data showed a middle path that satisfied both performance and usability goals.",
+          "context": "Describing conflict resolution approach during the HR screening",
+          "interviewSource": "hr"
+        }
+      ],
+      "interviewerImpressions": [
+        {
+          "id": "ri1",
+          "question": "How genuine did her conflict resolution example feel?",
+          "answer": "Very authentic — she paused to recall specific details and acknowledged the PM's perspective was valid before describing the resolution.",
+          "sentiment": "positive",
+          "interviewSource": "hr"
+        },
+        {
+          "id": "ri2",
+          "question": "How did she handle the system design challenge under time pressure?",
+          "answer": "She was methodical and calm. Started with requirements clarification, drew a clear architecture, and proactively discussed trade-offs without being prompted.",
+          "sentiment": "positive",
+          "interviewSource": "technical"
+        },
+        {
+          "id": "ri3",
+          "question": "Did she demonstrate genuine interest in the role?",
+          "answer": "Yes — she asked thoughtful questions about our design review process and onboarding. She mentioned this role is her top priority over another active process.",
+          "sentiment": "positive",
+          "interviewSource": "hr"
+        }
+      ],
+      "atsPushEvents": [],
+      "atsConnectionName": "Greenhouse"
+    },
+    {
+      "id": "sc-002",
+      "candidateId": "cand-202",
+      "candidateName": "James Whitfield",
+      "jobRequisitionId": "req-302",
+      "jobTitle": "Staff Backend Engineer",
+      "department": "Engineering",
+      "generatedAt": "2026-05-12T10:00:00Z",
+      "lastEditedAt": "2026-05-12T15:30:00Z",
+      "editedByRecruiter": true,
+      "status": "pushed",
+      "summary": "James Whitfield showed mixed signals across the two interview stages. HR screening was positive on communication and culture fit, but the technical interview revealed concerning gaps in distributed systems knowledge that are core requirements for this Staff-level role.",
+      "hrSummary": "James presented well in the HR screening — articulate, enthusiastic about the company mission, and aligned on team culture expectations. He has 10 years of engineering experience and currently leads a team of 8 at his company. Salary expectations are slightly above range but negotiable.",
+      "technicalSummary": "The technical interview exposed significant gaps. James struggled with the event-sourcing design challenge, defaulting to CRUD patterns rather than demonstrating the distributed systems thinking expected at Staff level. He was unable to discuss CAP theorem trade-offs in practical terms and relied heavily on abstract descriptions rather than concrete implementation experience.",
+      "recommendation": "no_hire",
+      "confidenceLevel": "high",
+      "strengths": [
+        {
+          "id": "s1",
+          "text": "Strong communication skills and leadership presence",
+          "evidence": "HR screening showed articulate explanation of team leadership approach and conflict resolution"
+        },
+        {
+          "id": "s2",
+          "text": "Genuine enthusiasm for the company mission",
+          "evidence": "Asked detailed questions about product roadmap and company culture in both interviews"
+        }
+      ],
+      "concerns": [
+        {
+          "id": "c1",
+          "text": "Distributed systems knowledge insufficient for Staff level",
+          "evidence": "Technical interview: defaulted to CRUD patterns for the event-sourcing challenge; could not articulate CAP theorem trade-offs practically"
+        },
+        {
+          "id": "c2",
+          "text": "Gap between self-described seniority and demonstrated technical depth",
+          "evidence": "Resume claims distributed systems expertise but technical interview showed surface-level understanding"
+        },
+        {
+          "id": "c3",
+          "text": "May be better suited for a management track than a Staff IC role",
+          "evidence": "Strongest signals came from leadership and communication skills rather than technical problem-solving"
+        }
+      ],
+      "evidenceQuotes": [
+        {
+          "id": "eq1",
+          "timestamp": "22:15",
+          "speaker": "James Whitfield",
+          "quote": "I would probably start with a relational database and add events on top as needed... maybe with a message queue.",
+          "context": "Response to the event-sourcing design challenge during the technical interview — demonstrates CRUD-first thinking",
+          "interviewSource": "technical"
+        },
+        {
+          "id": "eq2",
+          "timestamp": "10:30",
+          "speaker": "James Whitfield",
+          "quote": "I believe in servant leadership — my job is to remove blockers for my team and make sure they have what they need to do their best work.",
+          "context": "Describing his leadership philosophy during the HR screening",
+          "interviewSource": "hr"
+        }
+      ],
+      "interviewerImpressions": [
+        {
+          "id": "ri1",
+          "question": "How did his leadership experience come across in the HR conversation?",
+          "answer": "Authentic and thoughtful. He clearly cares about his team and has genuine management instincts.",
+          "sentiment": "positive",
+          "interviewSource": "hr"
+        },
+        {
+          "id": "ri2",
+          "question": "How did he handle the technical challenge when he started struggling?",
+          "answer": "He got visibly uncomfortable and started hedging with vague architectural buzzwords rather than admitting uncertainty. This was a red flag for me at the Staff level — I'd expect someone to say 'I'm not sure, but here's how I'd approach figuring it out.'",
+          "sentiment": "negative",
+          "interviewSource": "technical"
+        }
+      ],
+      "atsPushEvents": [
+        {
+          "id": "push-001",
+          "scorecardId": "sc-002",
+          "pushedAt": "2026-05-12T16:00:00Z",
+          "atsProvider": "Greenhouse",
+          "status": "success",
+          "externalUrl": "https://app.greenhouse.io/scorecards/881234"
+        }
+      ],
+      "atsConnectionName": "Greenhouse"
+    },
+    {
+      "id": "sc-003",
+      "candidateId": "cand-203",
+      "candidateName": "Sofia Chen-Martínez",
+      "jobRequisitionId": "req-301",
+      "jobTitle": "Senior Frontend Engineer",
+      "department": "Engineering",
+      "generatedAt": "2026-05-11T09:00:00Z",
+      "lastEditedAt": null,
+      "editedByRecruiter": false,
+      "status": "push_failed",
+      "summary": "Sofia Chen-Martínez shows promise with strong accessibility expertise and a thoughtful approach to component design. However, discrepancies between interview stages suggest some inconsistency — HR screening revealed potential concerns about collaboration that the technical interview didn't fully address.",
+      "hrSummary": "Sofia was personable but gave inconsistent signals about preferred working style. She initially described herself as highly collaborative but later mentioned preferring to 'go heads-down for long stretches without interruption.' When asked about team conflict, her example felt somewhat generic.",
+      "technicalSummary": "Strong technical showing. Sofia demonstrated deep accessibility knowledge (ARIA patterns, screen reader testing, keyboard navigation) that few candidates match. Her component API design was clean and well-reasoned. Slightly slower on the performance optimization segment but showed good analytical thinking.",
+      "recommendation": "maybe",
+      "confidenceLevel": "medium",
+      "strengths": [
+        {
+          "id": "s1",
+          "text": "Exceptional accessibility expertise — rare depth of knowledge",
+          "evidence": "Technical interview: correctly identified ARIA live region patterns, demonstrated screen reader testing workflow, and designed keyboard-navigable components"
+        },
+        {
+          "id": "s2",
+          "text": "Clean component API design instincts",
+          "evidence": "Technical interview: proposed a well-structured compound component pattern with clear separation of concerns"
+        }
+      ],
+      "concerns": [
+        {
+          "id": "c1",
+          "text": "Inconsistent signals about collaboration preferences between interviews",
+          "evidence": "HR screening: described herself as collaborative but then mentioned preferring long uninterrupted stretches"
+        },
+        {
+          "id": "c2",
+          "text": "Conflict resolution example felt generic — may indicate avoidance tendencies",
+          "evidence": "HR screening: gave a textbook answer about 'finding common ground' without specific details or emotional authenticity"
+        }
+      ],
+      "evidenceQuotes": [
+        {
+          "id": "eq1",
+          "timestamp": "18:45",
+          "speaker": "Sofia Chen-Martínez",
+          "quote": "For this dropdown, I'd use role='listbox' with aria-activedescendant rather than moving focus, because screen readers handle the announcement more consistently across browser engines.",
+          "context": "Demonstrating accessibility expertise during the technical interview",
+          "interviewSource": "technical"
+        },
+        {
+          "id": "eq2",
+          "timestamp": "12:20",
+          "speaker": "Sofia Chen-Martínez",
+          "quote": "I'm very collaborative, I love working in a team... but honestly I do my best work when I can go heads-down for long stretches without interruption.",
+          "context": "Discussing working style preferences during the HR screening",
+          "interviewSource": "hr"
+        }
+      ],
+      "interviewerImpressions": [
+        {
+          "id": "ri1",
+          "question": "Did you feel her collaboration concerns are deal-breakers?",
+          "answer": "Not necessarily — many senior engineers prefer focused work time. But the inconsistency between her initial claim and later admission was slightly concerning. Worth a follow-up conversation.",
+          "sentiment": "neutral",
+          "interviewSource": "hr"
+        },
+        {
+          "id": "ri2",
+          "question": "How would you rate her accessibility knowledge compared to other candidates?",
+          "answer": "Best I've seen in this hiring round. If accessibility is a priority for this role, she's the clear front-runner.",
+          "sentiment": "positive",
+          "interviewSource": "technical"
+        }
+      ],
+      "atsPushEvents": [
+        {
+          "id": "push-002",
+          "scorecardId": "sc-003",
+          "pushedAt": "2026-05-11T11:00:00Z",
+          "atsProvider": "Greenhouse",
+          "status": "failed",
+          "errorMessage": "API rate limit exceeded — retry after 60 seconds"
+        }
+      ],
+      "atsConnectionName": "Greenhouse"
+    },
+    {
+      "id": "sc-004",
+      "candidateId": "cand-204",
+      "candidateName": "Marcus Johnson",
+      "jobRequisitionId": "req-302",
+      "jobTitle": "Staff Backend Engineer",
+      "department": "Engineering",
+      "generatedAt": "2026-05-10T16:00:00Z",
+      "lastEditedAt": null,
+      "editedByRecruiter": false,
+      "status": "draft",
+      "summary": "Marcus Johnson showed strong technical foundations but both interviews flagged significant cultural and seniority concerns. The HR screening surfaced red flags about his approach to feedback, while the technical interview confirmed solid but not Staff-level system design capabilities.",
+      "hrSummary": "Marcus was confident and articulate but showed concerning reactions when discussing feedback and disagreement. He described a past conflict as 'the PM didn't understand the technical constraints' without acknowledging any shared responsibility. His salary expectations are 20% above our range.",
+      "technicalSummary": "Solid mid-senior technical performance. Marcus completed the coding challenge efficiently and showed good fundamentals. However, his system design lacked the breadth expected at Staff level — he focused narrowly on the happy path and didn't proactively address failure modes or scalability constraints.",
+      "recommendation": "no_hire",
+      "confidenceLevel": "medium",
+      "strengths": [
+        {
+          "id": "s1",
+          "text": "Strong coding fundamentals and efficient problem-solving",
+          "evidence": "Completed the coding challenge in 15 minutes with clean, well-structured code"
+        }
+      ],
+      "concerns": [
+        {
+          "id": "c1",
+          "text": "Concerning approach to feedback — attributes conflicts to others' lack of understanding",
+          "evidence": "HR screening: described past PM conflict as entirely the PM's failure to grasp technical constraints"
+        },
+        {
+          "id": "c2",
+          "text": "System design lacks Staff-level breadth",
+          "evidence": "Technical interview: focused on happy path without addressing failure modes, retry logic, or observability"
+        },
+        {
+          "id": "c3",
+          "text": "Salary expectations significantly above range",
+          "evidence": "HR screening: expecting $260K base vs. our $215K ceiling for Staff Backend Engineer"
+        }
+      ],
+      "evidenceQuotes": [
+        {
+          "id": "eq1",
+          "timestamp": "14:22",
+          "speaker": "Marcus Johnson",
+          "quote": "The PM just didn't understand the technical constraints. I explained it multiple times but they kept pushing for the original timeline.",
+          "context": "Describing a workplace conflict during the HR screening",
+          "interviewSource": "hr"
+        },
+        {
+          "id": "eq2",
+          "timestamp": "35:10",
+          "speaker": "David Park",
+          "quote": "What happens if the downstream service is unavailable? How does your design handle that?",
+          "context": "Technical interviewer probing failure mode awareness — Marcus had not addressed this proactively",
+          "interviewSource": "technical"
+        }
+      ],
+      "interviewerImpressions": [
+        {
+          "id": "ri1",
+          "question": "What was your read on his receptiveness to feedback?",
+          "answer": "Concerning. He seemed to view disagreements as others failing to understand him rather than opportunities for mutual learning. This could be problematic in a collaborative senior role.",
+          "sentiment": "negative",
+          "interviewSource": "hr"
+        },
+        {
+          "id": "ri2",
+          "question": "Do you think his technical level matches Staff expectations?",
+          "answer": "No. His coding was solid mid-senior, but the system design lacked the proactive thinking about failure modes and operational concerns I'd expect from a Staff engineer. He needed explicit prompting to consider edge cases.",
+          "sentiment": "negative",
+          "interviewSource": "technical"
+        }
+      ],
+      "atsPushEvents": [],
+      "atsConnectionName": "Greenhouse"
+    },
+    {
+      "id": "sc-005",
+      "candidateId": "cand-205",
+      "candidateName": "Aisha Okonkwo",
+      "jobRequisitionId": "req-301",
+      "jobTitle": "Senior Frontend Engineer",
+      "department": "Engineering",
+      "generatedAt": "2026-05-14T11:00:00Z",
+      "lastEditedAt": null,
+      "editedByRecruiter": false,
+      "status": "generating",
+      "summary": "",
+      "hrSummary": "",
+      "technicalSummary": "",
+      "recommendation": null,
+      "confidenceLevel": null,
+      "strengths": [],
+      "concerns": [],
+      "evidenceQuotes": [],
+      "interviewerImpressions": [],
+      "atsPushEvents": [],
+      "atsConnectionName": "Greenhouse"
+    }
+  ]
+}

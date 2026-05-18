@@ -1,0 +1,13 @@
+/* Design Tokens for Vor */
+
+:root {
+  /* Colors */
+  --color-primary: theme('colors.blue');
+  --color-secondary: theme('colors.amber');
+  --color-neutral: theme('colors.slate');
+
+  /* Typography */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
